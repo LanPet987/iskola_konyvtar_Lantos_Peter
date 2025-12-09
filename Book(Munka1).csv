@@ -1,0 +1,13 @@
+NF0;;;tanulo nev;konyv cim;szerzo;;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+NF1;;;tanulo nev;;konyv cim;szerzo;
+;;;;;;;
+;;;;;;;
+;;;;;;;
+NF2;;tanulo  ID;tanulo nev;;konyv ID;konyv cim;szerzo
+;;;;;;;
+;;;;;;;
+;;;;;;;
+NF3;;tanulo ID;tanulo nev;;konyv ID;konyv cim;szerzo
