@@ -10,6 +10,9 @@ const db = mysql.createPool({
     password: '',
     database: 'konyvtar'
 });
+app.get('/',(req,res)=>{
+    res.send("fuss forest, fuss")
+})
 
 app.get('/konyvek', (req, res) => {
     const sql = 'SELECT * FROM konyv';
@@ -18,6 +21,19 @@ app.get('/konyvek', (req, res) => {
             return res.status(500).json({ error: err.message });
         }
         res.json(results);
+    });
+});
+
+app.post('beszur', (req, res) =>
+{
+    const { cim, szerzo_ID, tID }=req.body
+    const sql = 'Insert into konyv (cim, szerzo_ID, tId) values (?, ?, ?)'
+    db.query(sql, [cim, szerzo_ID, tID], (err, results) => {
+        if(err){
+            return res.status(500).json({error: err.message});
+        }
+        res.json({message: 'könyv sikeresen hozzáadva'});
+
     });
 });
 
