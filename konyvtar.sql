@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1:3307
--- Létrehozás ideje: 2025. Dec 09. 13:12
+-- Létrehozás ideje: 2025. Dec 09. 14:14
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -32,11 +32,25 @@ USE `konyvtar`;
 DROP TABLE IF EXISTS `konyv`;
 CREATE TABLE IF NOT EXISTS `konyv` (
   `Cim` varchar(100) NOT NULL,
-  `Szerzo` varchar(100) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tID` int(11) NOT NULL,
+  `SzerzoID` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK-TID` (`tID`)
+  KEY `FK-TID` (`tID`),
+  KEY `FK-Szerzo` (`SzerzoID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `szerzo`
+--
+
+DROP TABLE IF EXISTS `szerzo`;
+CREATE TABLE IF NOT EXISTS `szerzo` (
+  `SzerzoID` int(11) NOT NULL AUTO_INCREMENT,
+  `Szerzo_Nev` varchar(100) NOT NULL,
+  PRIMARY KEY (`SzerzoID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
