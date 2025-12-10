@@ -24,7 +24,7 @@ app.get('/konyvek', (req, res) => {
     });
 });
 
-app.post('beszur', (req, res) =>
+app.post('/beszur', (req, res) =>
 {
     const { cim, szerzo_ID, tID }=req.body
     const sql = 'Insert into konyv (cim, szerzo_ID, tId) values (?, ?, ?)'
@@ -37,6 +37,16 @@ app.post('beszur', (req, res) =>
     });
 });
 
+app.delete('/torol/:id', (req,res)=>{
+    const {id}=req.params || req.body;
+    const sql = 'delete from konyv where konyv_ID = ?'
+    db.query(sql, [id], (err, results) => {
+        if (err) {
+            return res.status(500).json({error: err.message});
+        }
+        res.json({message: 'könyv sikeresen törölve'});
+    });
+});
 
 
 app.listen(port, () => {
