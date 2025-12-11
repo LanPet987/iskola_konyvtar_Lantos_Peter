@@ -1,0 +1,20 @@
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+table thead{
+    background-color: #696969;
+    color: white;
+}
+tbody{
+    background-color: #D3D3D3;
+}
+tbody tr:nth-child(even) {
+    background-color: #A9A9A9;
+}
+table th, table td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+}
